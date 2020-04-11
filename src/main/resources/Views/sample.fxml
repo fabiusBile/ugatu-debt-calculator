@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane alignment="center" hgap="10" minHeight="600.0" minWidth="800.0" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.Controllers.Controller">
+   <columnConstraints>
+      <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" percentWidth="33.0" />
+      <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" percentWidth="33.0" />
+      <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" percentWidth="33.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="150.0" minHeight="150.0" prefHeight="93.0" valignment="TOP" vgrow="ALWAYS" />
+      <RowConstraints fillHeight="false" maxHeight="100.0" minHeight="0.0" prefHeight="0.0" vgrow="NEVER" />
+      <RowConstraints fillHeight="false" maxHeight="50.0" minHeight="50.0" prefHeight="30.0" valignment="TOP" vgrow="NEVER" />
+      <RowConstraints fillHeight="false" maxHeight="50.0" minHeight="50.0" valignment="TOP" vgrow="NEVER" />
+      <RowConstraints maxHeight="300.0" minHeight="0.0" valignment="TOP" vgrow="ALWAYS" />
+      <RowConstraints fillHeight="false" maxHeight="50.0" minHeight="50.0" valignment="TOP" vgrow="NEVER" />
+      <RowConstraints maxHeight="300.0" minHeight="0.0" valignment="TOP" vgrow="ALWAYS" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" vgrow="ALWAYS" />
+   </rowConstraints>
+   <children>
+      <Separator GridPane.columnSpan="3" GridPane.rowIndex="1" />
+      <VBox prefWidth="251.0" spacing="10.0" GridPane.halignment="LEFT">
+         <children>
+            <Label text="Сумма вклада">
+               <font>
+                  <Font name="System Font" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="initialAmount" />
+            <Label layoutX="10.0" layoutY="10.0" text="Дата открытия">
+               <font>
+                  <Font name="System Font" size="16.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="startDate" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+         </children></VBox>
+      <VBox spacing="10.0" GridPane.columnIndex="1">
+         <children>
+            <Label text="Процентная ставка, % годовых ">
+               <font>
+                  <Font name="System Font" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="annualPercent" />
+            <Label layoutX="10.0" layoutY="10.0" text="Срок вклада в днях">
+               <font>
+                  <Font name="System Font" size="16.0" />
+               </font>
+            </Label>
+            <Spinner  editable="true" fx:id="periodInDays" maxWidth="1.7976931348623157E308" />
+         </children></VBox>
+      <VBox spacing="10.0" GridPane.columnIndex="2">
+         <children>
+            <CheckBox fx:id="hasCapitalisation" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="57.0" prefWidth="250.0" text="Начисление процентов с учетом капитализации " wrapText="true">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </CheckBox>
+            <VBox fx:id="capitalisationOptions" spacing="10.0">
+               <children>
+                  <Label text="Периодичность капитализации">
+                     <font>
+                        <Font name="System Font" size="16.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="capitalisation" maxWidth="1.7976931348623157E308" />
+               </children>
+            </VBox>
+         </children></VBox>
+      <Button mnemonicParsing="false" onAction="#calculate" text="Расчитать" GridPane.rowIndex="2" />
+
+      <HBox alignment="CENTER" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+         <children>
+            <Label maxWidth="1.7976931348623157E308" text="Пополнения" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Button mnemonicParsing="false" onAction="#addAddition" text="Добавить" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" fillHeight="false" spacing="30.0" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+         <children>
+            <Label maxWidth="1.7976931348623157E308" text="Снятия" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#addWithdrawals" text="Добавить" />
+         </children>
+      </HBox>
+      <TitledPane fx:id="additionsPane" expanded="false" GridPane.columnSpan="3" GridPane.rowIndex="4" GridPane.valignment="TOP">
+         <content>
+            <ListView fx:id="additions" />
+         </content>
+      </TitledPane>
+      <TitledPane fx:id="withdrawalsPane" expanded="false" GridPane.columnSpan="3" GridPane.rowIndex="6" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+         <content>
+            <ListView fx:id="withdrawals" />
+         </content>
+      </TitledPane>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</GridPane>

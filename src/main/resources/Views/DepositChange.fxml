@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="anchorPane" minWidth="300.0" prefHeight="40.0" prefWidth="534.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox layoutX="5.0" layoutY="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+             <DatePicker fx:id="date" maxWidth="1.7976931348623157E308" prefHeight="37.0" prefWidth="125.0" promptText="Дата" HBox.hgrow="ALWAYS" />
+            <Spinner fx:id="amount" editable="true" maxWidth="1.7976931348623157E308" prefHeight="37.0" prefWidth="125.0" HBox.hgrow="ALWAYS" />
+            <Button fx:id="removeButton" mnemonicParsing="false" prefHeight="37.0" text="x" HBox.hgrow="NEVER">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+</AnchorPane>
